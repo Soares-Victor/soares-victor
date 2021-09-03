@@ -126,4 +126,4 @@ build
 *.jpeg
 
 # Json files
-#*.jsonl
+*.jsonl
