@@ -1,6 +1,25 @@
 {
-  "name": "ms-tariff-comparison",
+  "name": "@soares-victor/ms-tariff-comparison",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint --fix ./app",
+    "build": "npm run lint",
+    "test": "jest --forceExit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.934.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "error": "link:../../../libs/javascript/error/",
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "logger": "link:../../../libs/javascript/logger/",
+    "mongoose": "^5.12.14",
+    "node-cron": "^3.0.0"
+  }
 }
