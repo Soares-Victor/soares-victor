@@ -1,0 +1,106 @@
+type Mutation {
+    createOneProduct(productModel: ProductInput): Product
+    updateOneProduct(id: String, productModel: ProductInput): Product
+    deleteOneProduct(id: String): Product
+
+    uploadFileToProcess(fileProcessModel: [FileProcessInput]): [FileProcess]
+
+    deleteFilesToProcess(ids: [String]): FileDeleted
+    deleteCalculations(ids: [String]): DeleteCalculation
+
+}
+
+type Query {
+    listAllProduct: [Product]
+    listAllCalculationCost: [CalculationProcessed]
+    listAllFilesToProcess: [String]
+    startProcessing: [String]
+    calculateCostYear(kwhYear: String): TotalCosts
+}
+
+type Product {
+    _id: String
+    tariffName: String
+    description: String
+    month: Boolean
+    values: Values
+}
+
+type Values {
+    baseCost: Float
+    kwhCost: Float
+    maxConsumption: Float
+}
+
+type FileProcess {
+    name: String
+    base64: String
+}
+
+type FileDeleted {
+    Deleted: [Deleted]
+}
+
+type Deleted {
+    Key: String
+    VersionId: String
+}
+
+type DeleteCalculation {
+    n: Int
+    ok: Int
+    deletedCount: Int
+}
+
+input ProductInput {
+    tariffName: String
+    description: String
+    month: Boolean
+    values: ValuesInput
+}
+
+input ValuesInput {
+    baseCost: Float
+    kwhCost: Float
+    maxConsumption: Float
+}
+
+input CalculateInput {
+    kwhYear: Float
+}
+
+input FileProcessInput {
+    name: String
+    base64: String
+}
+
+type CalculationProcessed {
+    _id: String
+    person: Person
+    dateProcessed: String
+    installNumber: String
+    totalCosts: TotalCosts
+}
+
+type Person {
+    firstName: String
+    lastName: String
+}
+
+type TotalCosts {
+    kwhYear: Float
+    products: [ProductsTotalYear]
+}
+
+type ProductsTotalYear {
+    name: String
+    description: String
+    charger: String
+    totalYear: Products
+}
+
+type Products {
+    baseCostsYear: String
+    kwhCostsYear: String
+    totalCosts: Float
+}
