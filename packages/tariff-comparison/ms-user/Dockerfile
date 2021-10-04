@@ -6,9 +6,6 @@ ARG package
 ENV ms ${ms}
 ENV package ${package}
 
-
-RUN echo $ms
-
 WORKDIR /
 FROM base AS dependencies
 
@@ -18,5 +15,4 @@ COPY libs/javascript/logger /libs/javascript/logger
 
 COPY packages/${package}/${ms} /
 RUN yarn install
-RUN ls
 CMD ["yarn", "--cwd", "/packages/${package}/${ms}/" ,"start"]
