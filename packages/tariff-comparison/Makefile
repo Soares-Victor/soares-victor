@@ -3,4 +3,6 @@ start:
 	cd ms-user; \
 	make; \
 	cd ../ms-tariff-comparison/; \
+	make; \
+	cd ../../common/gateway-nodejs-common/; \
 	make;

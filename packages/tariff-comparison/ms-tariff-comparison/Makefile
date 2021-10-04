@@ -1,5 +1,5 @@
 start:
-	echo "Starting ms-tariff-comparison and mongodb"; \
+	echo "Starting ms-tariff-comparison and all components"; \
 	make startMongoDb; \
 	make startLocalStack; \
 	make startContainer;

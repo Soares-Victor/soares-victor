@@ -1,5 +1,5 @@
 start:
-	echo "Starting ms-user and mongodb"; \
+	echo "Starting ms-user and all components"; \
 	make startMongoDb; \
 	make startContainer;
 
