@@ -16,8 +16,7 @@ startMongoDb:
 
 startLocalStack:
 	echo "Starting LocalStack"; \
-	cd ../../common/localstack/ ; \
-	docker-compose -f docker-compose.yml up -d; \
+	docker-compose -f ../../common/localstack/docker-compose.yml up -d; \
 	sleep 10; \
-	make createBucket bucket_name=projectsysvictor-tariff-toprocess ; \
-	make createBucket bucket_name=projectsysvictor-user-photos ;
+	aws --endpoint-url=http://localhost:4566 s3 mb s3://projectsysvictor-tariff-toprocess; \
+	aws --endpoint-url=http://localhost:4566 s3 mb s3://projectsysvictor-user-photos; \

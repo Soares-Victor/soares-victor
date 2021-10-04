@@ -1,0 +1,6 @@
+start:
+	echo "Starting all stack"; \
+	cd ms-user; \
+	make; \
+	cd ../ms-tariff-comparison/; \
+	make;

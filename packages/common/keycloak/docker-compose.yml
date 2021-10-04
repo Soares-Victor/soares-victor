@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  keycloak:
+    image: jboss/keycloak
+    volumes:
+      - ./init/realm_common.json:/tmp/my_realm.json
+    environment:
+      KEYCLOAK_IMPORT: '/tmp/my_realm.json'
+      JAVA_OPTS_APPEND: "-Dkeycloak.profile.feature.upload_scripts=enabled -Dkeycloak.profile.feature.declarative_user_profile=enabled"
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - 8080:8080
