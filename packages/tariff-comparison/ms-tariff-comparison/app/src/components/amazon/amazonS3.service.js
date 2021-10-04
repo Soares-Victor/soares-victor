@@ -1,7 +1,7 @@
 require("dotenv").config();
 const fs = require("fs");
 const aws = require("aws-sdk");
-const configAws = require("../../../../../config/aws.config");
+const configAws = require("../../../../config/aws.config");
 const s3 = new aws.S3({
   endpoint: process.env.AWS_S3_ENDPOINT,
   s3ForcePathStyle: true,

@@ -6,7 +6,7 @@ const s3Service = require("../src/components/amazon/amazonS3.service");
 const mocks = require("./mocks/mock");
 const fs = require("fs");
 const aws = require("aws-sdk");
-const configAws = require("../../../config/aws.config");
+const configAws = require("../../config/aws.config");
 const s3 = new aws.S3({
   endpoint: process.env.AWS_S3_ENDPOINT,
   params: configAws,
