@@ -5,4 +5,6 @@ start:
 	cd ../ms-tariff-comparison/; \
 	make; \
 	cd ../../common/gateway-nodejs-common/; \
+	make; \
+	cd ../bff-common/; \
 	make;
