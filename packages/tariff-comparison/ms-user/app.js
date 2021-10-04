@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const dotEnv = require('dotenv')
-const dbConfig = require('../config/database.config')
+const dbConfig = require('./config/database.config')
 const mongoose = require('mongoose');
 const logger = require('logger')
 
