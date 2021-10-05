@@ -6,3 +6,8 @@ startDockerfile:
 startDockerCompose:
 	echo "Starting $(ms)"; \
 	docker-compose -f ./packages/$(package)/$(ms)/docker-compose.yml up -d;
+
+createProjectFromTemplate:
+	cd ./templates; \
+	chmod +x .createTemplate.sh; \
+	./.createTemplate.sh;
