@@ -2,12 +2,23 @@
 Solutions and projects.
 
 ## How run locally any package and service.
-1. Dockerfile eg:
+* Dockerfile eg:
 ```
 $ make startDockerfile package=tariff-comparison ms=ms-user
 ```
 
-2. Docker Compose eg:
+* Docker Compose eg:
 ```
 $ make startDockerCompose package=common ms=mongodb
+```
+
+* Create projects from templates:
+
+Check if you are at /soares-victor
+```
+$ pwd
+```
+then
+```
+$ make createProjectFromTemplate
 ```
