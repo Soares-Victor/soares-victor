@@ -23,10 +23,12 @@ read -r confirmation
 if [ "$confirmation" == "Y" ]; then
     printf "Creating...\n"
     mkdir -p ./packages/"${PACKAGE_TARGET,,}"/"${SERVICE_FOLDER_NAME,,}"
-    cp -a ./templates/"${TEMPLATE_TO_USE,,}"/* ./packages/"${PACKAGE_TARGET,,}"/"${SERVICE_FOLDER_NAME,,}"
+    cp -a ./templates/"${TEMPLATE_TO_USE,,}"/* ./templates/"${TEMPLATE_TO_USE,,}"/.env ./packages/"${PACKAGE_TARGET,,}"/"${SERVICE_FOLDER_NAME,,}"
     cd ./packages/"${PACKAGE_TARGET,,}"/"${SERVICE_FOLDER_NAME,,}" || exit
     find . -type f -exec sed -i "s/common/${PACKAGE_TARGET,,}/" {} \;
     find . -type f -exec sed -i "s/Common/${PACKAGE_TARGET,,}/" {} \;
+    find . -type f -exec sed -i "s/serviceName/${SERVICE_FOLDER_NAME,,}/" {} \;
+    find . -type f -exec sed -i "s/packageName/${PACKAGE_TARGET,,}/" {} \;
     printf "Done!\n"
 fi
 printf "Exit!\n"

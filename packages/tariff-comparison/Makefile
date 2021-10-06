@@ -7,4 +7,6 @@ start:
 	cd ../../common/gateway-nodejs-common/; \
 	make; \
 	cd ../bff-common/; \
+	make; \
+	cd ../../tariff-comparison/ui-tariff/; \
 	make;
